@@ -1,0 +1,293 @@
+
+html {
+    --border: 3px;
+    --off-white: #f5f5f5;
+    --header-font: sans-serif;
+    background: var(--off-white);
+}
+
+body {
+    gap: 0;
+    font-family: sans-serif;
+    align-content: flex-start;
+    align-items: stretch;
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6, nav a {
+    text-transform: uppercase;
+    font-family: var(--header-font);
+}
+
+header {
+    background: var(--off-white);
+    padding: 0;
+    border-bottom: var(--border) solid black;
+    font-family: var(--header-font);
+    height: fit-content;
+    align-self: center;
+}
+
+header h1 {
+    display: none;
+}
+
+header::after {
+    font-size: 2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: black;
+    content: "ROBERT MOLLER";
+    margin: auto;
+    padding: 2rem 0;
+    font-weight: bold;
+}
+
+
+nav {
+    background: var(--off-white);
+    height: 80vh;
+}
+
+nav ul li {
+    border: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+nav ul li a {
+    color: black;
+}
+
+nav ul li.active a {
+    color: white;
+}
+
+nav ul li.active {
+    background: black;
+}
+
+nav ul li:hover {
+    background: transparent;
+    box-shadow: 2px 2px 1px 2px black;
+    translate: -2px -2px;
+}
+
+
+nav ul li:active {
+    translate: 2px 2px;
+
+    box-shadow: -2px -2px 1px 2px black;
+}
+
+nav ul li.active:hover {
+    background: black;
+}
+
+/*Mobile*/
+@media screen and (max-width: 800px) {
+    nav {
+        border-bottom: var(--border) solid black;
+        height: fit-content;
+    }
+
+    nav ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    article {
+        max-width: 100%;
+    }
+
+    /*registration size tweak*/
+    article #register input[name="name"] + .inputValidationMessage::before {
+        bottom: -5px !important;
+    }
+
+    article #register input[name="email"] + .inputValidationMessage::before {
+        top: -3.5px !important;
+        bottom: -4.5px !important;
+    }
+
+    article #register input[name="password"] + .inputValidationMessage::before {
+        top: -4px !important;
+        bottom: -5px !important;
+    }
+}
+
+
+/*Desktop*/
+@media screen and (min-width: 800px) {
+    nav {
+        border-right: var(--border) solid black;
+    }
+}
+
+article {
+    padding: 0;
+    justify-items: start;
+    flex-grow: 1;
+    height: 100%;
+}
+
+section {
+    padding: 1rem;
+    border-bottom: var(--border) solid black;
+    flex-grow: 1;
+}
+
+section h2, section h3 {
+    margin-top: 0;
+    position: relative;
+}
+
+section h2::after, section h3::after {
+    position: absolute;
+    content: ' ';
+    bottom: -4px;
+    left: 0;
+    width: 50px;
+    background: black;
+    height: var(--border);
+}
+
+section#introduction {
+    background: #ea704d;
+}
+
+section#introduction img {
+    position: relative;
+    border-radius: 0;
+    order: 2;
+    border: var(--border) solid black;
+    transition: animation-play-state 0.2s ease, filter 2s ease;
+}
+
+section#introduction img:hover {
+    animation-play-state: paused;
+    filter: hue-rotate(180deg);
+}
+
+section#register th {
+    font-size: smaller;
+}
+
+section#register td input {
+    border: 2px solid black;
+    padding: 0.2rem 0.4rem;
+}
+
+section#register table {
+    padding-bottom: 0.4rem;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 2px 2px 1px 0px black !important;
+}
+
+
+article #register input:focus+ .inputValidationMessage::before {
+    box-shadow: 2px 2px 1px 0px black !important;
+}
+
+article #register input:required + .inputValidationMessage {
+    position: relative;
+    font-size: 9pt;
+    color: white;
+}
+
+article #register td {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+}
+
+article #register input + .inputValidationMessage {
+    position: absolute;
+    height: 100%;
+}
+
+article #register input + .inputValidationMessage::before {
+    top: -3px;
+    bottom: -4px;
+    left: -2px;
+    width: 12px;
+    padding: 4px;
+    color: white;
+    text-align: center;
+    font-size: 8pt;
+    border: 2px solid black;
+}
+
+article #register input[name="name"] + .inputValidationMessage::before {
+    top: -3.5px;
+    bottom: -4.5px;
+}
+
+article #register input[name="email"] + .inputValidationMessage::before {
+    bottom: -5px;
+}
+
+article #register input[name="birthdate"] + .inputValidationMessage::before {
+    top: -5px;
+    bottom: -6.5px;
+}
+article #register input[name="password"] + .inputValidationMessage::before {
+    top: -3px;
+    bottom: -4.5px;
+}
+
+article #register input:required + .inputValidationMessage::before {
+    color: white;
+    background: #9a9898
+}
+
+article #register input:valid + .inputValidationMessage::before {
+    color: white;
+    background: green
+}
+
+
+section#register input[type="submit"] {
+    border: 2px solid black;
+    background: var(--off-white);
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0.4rem;
+    transition: all 0.2s ease-in-out;
+}
+
+section#register form:valid input[type="submit"]:hover {
+    translate: -2px -2px;
+    box-shadow: 2px 2px 1px 1px black;
+}
+
+section#register input[type="submit"] {
+    cursor: pointer;
+}
+
+
+section#register form:valid input[type="submit"]:active {
+    translate: 2px 2px;
+    box-shadow: -2px -2px 1px 1px black;
+}
+
+
+section#register form:invalid input[type="submit"] {
+    cursor: not-allowed;
+}
+
+
+section:last-child {
+    border: 0;
+}
+
+footer {
+    align-self: stretch;
+    background: #0d1618;
+    text-transform: uppercase;
+    height: 7vh;
+    position: relative;
+}

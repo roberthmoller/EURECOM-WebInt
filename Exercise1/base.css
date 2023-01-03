@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+header {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background: #4392bf;
+    color: white;
+}
+
+nav {
+    width: 20%;
+    background: #22526a;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+nav ul li.active {
+    background: #cdd4db;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li.active a {
+    color: #22526a;
+}
+
+nav ul li:hover {
+    background: rgba(205, 212, 219, 0.47);
+}
+
+nav ul li {
+    padding: .5rem;
+}
+
+article {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+article #introduction img {
+    border-radius: .5rem;
+}
+
+article #register {
+    --th-width: 5rem;
+    --col-width: 10rem;
+}
+
+article #register table tr th,
+article #register table tr td {
+    padding: .2rem 0 ;
+}
+
+article #register table input {
+    width: var(--col-width);
+}
+
+article #register table tr th {
+    text-align: left;
+    width: var(--th-width);
+}
+
+article #register input[type="submit"] {
+    --col-span: 2;
+    --col-padding: 0.3rem;
+    width: calc(var(--th-width) + var(--col-width) + var(--col-padding));
+}
+
+article #register table input {
+    position: relative;
+    overflow: visible;
+}
+
+article #register .inputValidationMessage {
+    position: relative;
+}
+article #register .inputValidationMessage::before {
+    padding-left: 0.5rem;
+}
+
+article #register input:required + .inputValidationMessage::before {
+    position: absolute;
+    content: "✻";
+    color: gray;
+}
+
+article #register input:optional:empty + .inputValidationMessage::before {
+    content: "";
+}
+
+article #register input:valid + .inputValidationMessage::before {
+    position: absolute;
+    content: "✓";
+    color: green;
+}
+
+footer {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background: #545557;
+    color: white;
+}
